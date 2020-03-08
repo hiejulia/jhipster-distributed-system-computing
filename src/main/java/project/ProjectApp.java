@@ -1,5 +1,6 @@
 package project;
 
+import org.springframework.beans.factory.annotation.Value;
 import project.config.ApplicationProperties;
 
 import io.github.jhipster.config.DefaultProfileUtil;
@@ -28,6 +29,11 @@ import java.util.Collection;
 public class ProjectApp implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(ProjectApp.class);
+
+    @Value("${cassandra.server.url}")
+    private static String serverUrl = "localhost";
+    @Value("${cassandra.server.port}")
+    private static Integer serverPort = 9042;
 
     private final Environment env;
 
@@ -65,6 +71,23 @@ public class ProjectApp implements InitializingBean {
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);
+
+        CassandraConnector cc = new CassandraConnector();
+        producer = new Producer();
+
+        try {
+            cc.connect(serverUrl, serverPort);
+            producer.create("HappyPatientsHospital");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
     }
 
     private static void logApplicationStartup(Environment env) {
