@@ -2,7 +2,7 @@
 Distributed system that can serve high load
 ## Description
 + Netflix clone 
-    + Video streaming service 
+    + Live Video streaming service 
     + Billing service
       + coupon service, invoice service, order service, payment service      
     + Metrics service     
@@ -15,7 +15,8 @@ Distributed system that can serve high load
     + Kafka 
 + Distributed DB
     + Cassandra  
-+ Distributed file system : Hadoop, HDFS
++ Distributed file system : 
+    + Hadoop, HDFS
 + Distributed DNS 
 + Distributed proxy server
 + Distributed web server 

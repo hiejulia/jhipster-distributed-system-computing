@@ -26,7 +26,7 @@ import java.util.*;
  * REST controller for managing the current user's account.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class AccountResource {
 
     private static class AccountResourceException extends RuntimeException {
