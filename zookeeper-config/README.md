@@ -1,0 +1,2 @@
+# Apache Zookeeper 
+Centralized configuration managementUsing ZooKeeper to store your configuration information has two main benefits. First, new nodes only need to be told how to connect to ZooKeeper and can then download all other configuration information and determine the role they should play in the cluster for themselves. Second, your application can subscribe to changes in the configuration, allowing you to tweak the configuration through a ZooKeeper client and modify the cluster’s behavior at run-time.
