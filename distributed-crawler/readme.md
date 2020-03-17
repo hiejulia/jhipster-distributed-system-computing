@@ -1,4 +1,35 @@
 # Distributed crawler
++ Distributed—should have the ability to execute in a distributed environment across multiple machines.
++ Performance and efficiency—capable of making efficient use of system resources, i.e., processor, storage, and network bandwidth. Crawlers downloading a site for the first time is likely to download all the available archives.
++ Scalable—capable of scaling up the crawl rate by adding extra machines and bandwidth.
++ Extensible—should be designed to be extensible to cope up with new data formats and new fetch protocols. To be extensible, the crawler architecture should be modular.
++ Network-load dispersion:Multiple crawling processesof a parallel crawler may run at geographically distantlocations, each downloading “geographically-adjacent”pages. For example, a process in Germany may down-load all European pages, while another one in Japancrawls all Asian pages. In this way, we candispersethe network load to multiple regions.  In particular,this dispersion might be necessary when a single net-work cannot handle the heavy load from a large-scalecrawl.
+
+# Technical feature 
++ Config Quartz in clustering mode for distributed scheduling backed my MySQL 
+
+
+
+
+
+# Distributed OS, Distributed memory, Distributed file system 
+# Distributing download 
++ Thread download 
++ batch download
+
+
+# Caching download 
+
+# Stack 
++ Apache Nutch - Nutch distributed and scalable, using concepts known as Hadoop and MapReduce.
+    + HyperSQL 
++ Deployment : 
++ 
++ 
+
+
+
+# More technical details 
 + 20 AWS EC2 machines 
 + HashTable
 + Distrubuted scheduling Quart in clustering mode for distributed scheduling backed by MySQL 
@@ -41,6 +72,10 @@ Solution 1
 + Bayesian classification  
 
 
+# Data structure : 
++ 
+
+
 # Archiecture 
 + Multithead -distributed many machines 
     + 
@@ -52,16 +87,19 @@ Solution 1
     + partition crawling 
 + cloud based : Map Reduce, NoSQL db 
 (no focus on centralized / hybrid crawling architecture )
++ Streaming
 
-
+# Fail tolerant 
++ node failure : remove working nodes, re distributed again to working nodes. 
++ Job fail : job node failed
 
 # References to 
 + Databook: Turning Big Data into Knowledge with Metadata at Uber
-+ Research paper: 
++ Research paper(Google, Facebook, MIT, Harvard, Stanford, IBM)
     + A Fast Distributed Focused-Web Crawling
     + Crawling Facebook for Social Network Analysis Purposes
-    + 
-
+    + SchedulingAlgorithmsforWebCrawling
+    + Parallel Crawlers
 
 
 
