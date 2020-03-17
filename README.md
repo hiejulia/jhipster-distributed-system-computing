@@ -82,7 +82,7 @@ Distributed system that can serve high load
 ## Reference to 
 + Book 
 + Research paper (Graduate, PhD level )
-+ Distributed system of : Uber, Netflix, 
++ Distributed system, large scale system : Uber, Netflix, Grab, AirBnB, Amazon, AWS, Google, Microsoft, Facebook, Apple 
 + Resource 
     + https://eng.uber.com/ureplicator-apache-kafka-replicator/
     + https://cwiki.apache.org/confluence/display/ZOOKEEPER/PoweredBy
