@@ -31,7 +31,9 @@ public class Handler implements Runnable{
 
     public Handler(Socket socket) {
         this.socket = socket;
+        //
         this.inetAddress = socket.getInetAddress();
+        //
         this.serverId = inetAddress.getHostAddress() + ":" + socket.getPort();
     }
 

@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 public class Test {
 
 
-
         public void test(){
 
             HashSet<ServerNode> serverNodeHashSet = new HashSet<ServerNode>();

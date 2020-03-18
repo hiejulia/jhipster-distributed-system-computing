@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.swing.JFrame;
 
 public class SockerServer {
 
@@ -20,15 +19,13 @@ public class SockerServer {
     private ServerSocket serverSocket = null;
     private ExecutorService threadPool = null;
 
-    // TODO
-    // Socker Map
     private HashMap<String, Handler> slaveMap = null;
 
-    private OnAsyncTaskListener onAsyncTaskListener = null;
+    private Handler.OnAsyncTaskListener onAsyncTaskListener = null;
 
     private boolean isRunning = false;
 
-    public SocketServer(int port) throws IOException{
+    public SockerServer(int port) throws IOException{
         this.port = port;
         this.threadPool = Executors.newCachedThreadPool();
         this.serverSocket = new ServerSocket(port);
@@ -39,29 +36,20 @@ public class SockerServer {
         return this.slaveMap;
     }
 
-    /**
-     * 设置监听器，用来接受命令
-     * @param onAsyncTaskListener
-     */
-    public void setOnAsyncTaskListener(OnAsyncTaskListener onAsyncTaskListener){
+
+    public void setOnAsyncTaskListener(Handler.OnAsyncTaskListener onAsyncTaskListener){
         this.onAsyncTaskListener = onAsyncTaskListener;
     }
 
-    /**
-     * 给指定从机发送命令
-     * @param slaveId 由IP和port组成，such as:192.268.1.1:8080
-     * @param command
-     * @return
-     */
+
+    // send - slaveId -
     public boolean send(String slaveId, Command command){
         Handler handler = this.slaveMap.get(slaveId);
         return handler.send(command);
     }
 
-    /**
-     * 给所有从机发送命令
-     * @param command
-     */
+    // send ALl to slave
+
     public void sendAll(Command command){
         Iterator<String> iter = this.slaveMap.keySet().iterator();
         while(iter.hasNext()){
@@ -71,23 +59,18 @@ public class SockerServer {
         }
     }
 
-    /**
-     * 移除slaveId
-     * @param slaveId
-     */
+
     public void removeSlave(String slaveId){
         this.slaveMap.remove(slaveId);
     }
 
-    /**
-     * 开启服务器监听，判断是否有从机加入
-     */
+
     public void start(){
         isRunning = true;
 
         new Thread(){
             public void run(){
-                System.out.println("服务器启动成功");
+
                 while(isRunning){
                     try {
                         Socket socket = serverSocket.accept();
@@ -97,9 +80,9 @@ public class SockerServer {
                         InetAddress address = socket.getInetAddress();
                         String key = address.getHostAddress() + ":" + socket.getPort();
 
-                        System.out.println("从机的id:" + key);
 
-                        //将slave机加到map中
+
+                        // Distributed to slave
                         slaveMap.put(key, handler);
                         if(onAsyncTaskListener != null){
                             onAsyncTaskListener.onAccept(key, handler);

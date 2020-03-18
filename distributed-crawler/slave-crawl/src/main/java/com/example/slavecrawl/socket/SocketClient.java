@@ -2,11 +2,12 @@ package com.example.slavecrawl.socket;
 
 
 
+import com.example.slavecrawl.distributed.Handler;
+import com.example.slavecrawl.model.Command;
+
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
-
 
 
 public class SocketClient {
@@ -32,26 +33,17 @@ public class SocketClient {
         this.masterPort = masterPort;
     }
 
-    /**
-     * 开启监听
-     */
+
     public void start(){
         new Thread(this.handler).start();
     }
 
-    /**
-     * 设置监听器，用来接受命令回调
-     * @param onAsyncTaskListener
-     */
-    public void setOnAsyncTaskListener(OnAsyncTaskListener onAsyncTaskListener){
+
+    public void setOnAsyncTaskListener(Handler.OnAsyncTaskListener onAsyncTaskListener){
         handler.setOnAsyncTaskListener(onAsyncTaskListener);
     }
 
-    /**
-     * 发送数据
-     * @param command
-     * @return
-     */
+
     public boolean send(Command command) {
         return handler.send(command);
     }

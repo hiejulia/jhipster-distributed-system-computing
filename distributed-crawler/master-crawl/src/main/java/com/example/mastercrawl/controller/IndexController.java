@@ -12,7 +12,7 @@ public class IndexController {
     public String crawler(@PathVariable String cname) {
         CrawlerModel model = CrawlerCache.getCrawlerModel(cname);
         if (model == null) {
-            return "not find " + cname;
+
         }
         return model.queueInfo();
     }
@@ -20,8 +20,8 @@ public class IndexController {
 
     @RequestMapping(value = "send_req")
     public String sendRequest(Request request){
-        CrawlerCache.consumeRequest(request);
-        return "consume suc";
+//        CrawlerCache.consumeRequest(request);
+        return "ok";
     }
 
 

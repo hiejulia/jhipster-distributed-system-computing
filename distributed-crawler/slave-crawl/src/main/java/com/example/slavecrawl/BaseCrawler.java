@@ -7,55 +7,33 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.example.slavecrawl.model.WebPage;
 import redis.clients.jedis.Jedis;
-import model.WebPage;
-import util.AppUtil;
-import util.DbUtil;
-import util.HttpUtil;
-import util.PageUtil;
-import util.RedisUtil;
 
 
 public abstract class BaseCrawler {
     private final static int TASK_NUM = 10;
-    /**
-     * 保存爬过的Url和深度，key是url的md5值，value是深度值
-     */
+
+    // Url - key - url - MD5
     private ConcurrentHashMap<String, Integer> urlDeeps;
 
-    /**
-     * redis对象，记录爬虫信息
-     */
     protected Jedis jedis;
 
-    /**
-     * 等待的队列
-     */
+    // Wait list
     private LinkedList<String> waitList;
-    /**
-     * 线程池
-     */
+
+    // Executor Framework
     private ExecutorService taskPool;
-    /**
-     * 网页的字符编码
-     */
+
     private String charset = "utf-8";
-    /**
-     * 网页的域名，如：http://lvyou.baidu.com
-     */
+
     private String domain = "";
-    /**
-     * 爬虫最大的深度
-     */
     private int crawlerDeeps = 2;
-    /**
-     * 延时时间
-     */
+    /*
+    private int crawlerDeeps = 2;
+
     private int delay = 200;
 
-    /**
-     * 判断爬虫是否正在运行
-     */
     private boolean isRunning = false;
 
     private boolean isPaused = false;
@@ -67,17 +45,12 @@ public abstract class BaseCrawler {
         jedis = RedisUtil.getInstance();
     }
 
-    /**
-     * 初始化种子
-     */
+
     public void initSeeds(){
         reset();
         loadWaitList();
     }
 
-    /**
-     * 自动加载种子数据,开始爬取,由外部调用
-     */
     public void start(){
         this.isRunning = false;
         this.isPaused = false;
@@ -102,9 +75,6 @@ public abstract class BaseCrawler {
     }
 
 
-    /**
-     * 开启爬虫线程
-     */
     private void doCrawl(){
         if (isRunning) {
             return;
@@ -129,7 +99,7 @@ public abstract class BaseCrawler {
     }
 
     /**
-     * 将waitList的头结点弹出
+     * waitList
      * @return
      */
     public synchronized String popWaitList(){
@@ -137,83 +107,56 @@ public abstract class BaseCrawler {
         return temp;
     }
 
-    /**
-     * 将url添加到等待队列中，并且添加到redis未访问记录中
-     * @param url
-     * @param uniqueKey
-     */
+
+    // Add wailist to Redis - url - unique key
     public synchronized void addWaitList(String url, String uniqueKey){
-        //如果url没有被记录
+        // check if url is already
         if(!jedis.exists(uniqueKey)){
             waitList.offer(url);
             jedis.set(uniqueKey, 0+"");
             return;
         }
-
-        //如果url被记录了但是没有被爬取
+        // url
         if(jedis.get(uniqueKey).equals("0") && !waitList.contains(url)){
             waitList.offer(url);
         }
     }
 
-    /**
-     * 将url添加到未访问的列表, 不会判断redis是否存在改uniqueKey
-     * @param uniqueKey 如:guangzhou-1
-     */
+
+    // add unvisited url : to Redis
     public synchronized void addUnVisitPath(String uniqueKey){
         jedis.set(uniqueKey, 0+"");
     }
 
-    /**
-     * 将该url标记为已经访问过
-     * @param uniqueKey 能唯一标示Url的，
-     * 如http://lvyou.baidu.com/destination/ajax/jingdian?format=ajax&cid=1&pn=2
-     * 则uniqueKey为baiyunshan-2的md5值
-     */
+
+    // Visited url - unique key : md5 - url
     public synchronized void visitUrl(String uniqueKey){
         jedis.set(uniqueKey, 1+"");
     }
 
 
-    /**
-     * 获得已经爬取过的url深度列表，key是url的md5值，value是深度值
-     * @return
-     */
+    // get url
     public ConcurrentHashMap<String, Integer> getUrlDeeps(){
         return this.urlDeeps;
     }
 
-    /**
-     * 执行完爬虫之后的回调函数
-     * @param webPage
-     */
+    // Abstract class to extract Web Page
     public abstract void exactor(WebPage webPage);
 
-    /**
-     * 加载等待队列
-     */
+
     public abstract void loadWaitList();
 
-    /**
-     * 设置字符集
-     * @param charset
-     */
+
     public void setCharset(String charset){
         this.charset = charset;
     }
 
-    /**
-     * 设置域名, 解决相对地址问题
-     * @param domain
-     */
+
     public void setDomain(String domain){
         this.domain = domain;
     }
 
-    /**
-     * 设置爬虫的深度，默认为2
-     * @param deeps
-     */
+
     public void setCrawlerDeeps(int deeps){
         if(deeps >= 0){
             this.crawlerDeeps = deeps;
@@ -221,12 +164,6 @@ public abstract class BaseCrawler {
     }
 
 
-
-    /**
-     * 具体爬取的线程
-     * @author yinchuandong
-     *
-     */
     public class ProcessThread implements Runnable{
 
         private String url;
@@ -236,7 +173,8 @@ public abstract class BaseCrawler {
 
         @Override
         public void run() {
-            System.out.println("正在爬取waitList:" + waitList.size() + "个：" + url);
+            // Thread run task - get URL
+                // Use HTTP get
             HttpUtil httpUtil = new HttpUtil();
             httpUtil.setCharset(charset);
             String pageContent = httpUtil.get(url);
@@ -248,7 +186,7 @@ public abstract class BaseCrawler {
                 exactor(null);
                 e.printStackTrace();
             }
-            //再次调用爬虫，避免因解析耗时过多，导致等待队列为空，爬虫停止的情况
+
             if(!waitList.isEmpty() && !isRunning && !isPaused){
                 doCrawl();
             }
