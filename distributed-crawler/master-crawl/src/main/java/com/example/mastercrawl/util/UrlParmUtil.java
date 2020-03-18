@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class UrlParmUtil {
 
     /**
-     * @param url http://www.mafengwo.cn/hotel/ajax.php?sAction=getPoiList2&iMddId=34888&sKeyWord=&sCheckIn=2014-07-29&sCheckOut=2014-07-30&iPage=1&sTags=&iPriceMin=0&iPriceMax=&sSortType=comment&sSortFlag=DESC
+     * @param url
      * @return {"action":"getPoiList2",....}
      */
     public static HashMap<String, String> parseUrl(String url){
@@ -36,6 +36,7 @@ public class UrlParmUtil {
     }
 
     public static void main(String[] args){
+        // Test
         HashMap<String, String> map = parseUrl("http://www.mafengwo.cn/hotel/ajax.php?sAction=getPoiList2&iMddId=34888&sKeyWord=&sCheckIn=2014-07-29&sCheckOut=2014-07-30&iPage=1&sTags=&iPriceMin=0&iPriceMax=&sSortType=comment&sSortFlag=DESC");
         System.out.println(map.get("iMddId"));
         System.out.println();

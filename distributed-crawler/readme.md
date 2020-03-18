@@ -95,12 +95,13 @@ Solution 1
 
 # References to 
 + Databook: Turning Big Data into Knowledge with Metadata at Uber
++ Netflix crawler architecture 
 + Research paper(Google, Facebook, MIT, Harvard, Stanford, IBM)
     + A Fast Distributed Focused-Web Crawling
     + Crawling Facebook for Social Network Analysis Purposes
     + SchedulingAlgorithmsforWebCrawling
     + Parallel Crawlers
-
+    
 
 
 + Code : https://github.com/search?o=desc&q=distributed+crawl+java&s=stars&type=Repositories

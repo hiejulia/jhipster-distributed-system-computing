@@ -36,7 +36,8 @@ Distributed system that can serve high load
         + Spring cloud :
             + distributed messaging : Cloud bus link the nodes of a distributed system with a lightweigh message broker 
             + 
-    
++ Distributed crawler 
++ Distributed 
 ## Implementation 
 + Distributed Cache server 
     + HazelCast distributed caching 

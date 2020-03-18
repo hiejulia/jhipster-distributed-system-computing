@@ -118,6 +118,7 @@ public class PageUtil {
         return filename;
     }
 
+    // Read file
     public static String readFile(File file){
         String result = "";
         BufferedReader reader = null;
