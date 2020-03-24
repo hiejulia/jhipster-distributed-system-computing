@@ -38,6 +38,8 @@ Distributed system that can serve high load
             + 
 + Distributed crawler 
 + Distributed 
+
+
 ## Implementation 
 + Distributed Cache server 
     + HazelCast distributed caching 
@@ -70,11 +72,29 @@ Distributed system that can serve high load
 
 	+ mobile agents;
 
+    + Reactive 
+        + Akka : HTTP, stream, clustering, sharding, actors 
+        + Domain sourcing 
+        + Distributed domain driven design 
+        + CQRS 
+    + Bulkhead pattern
+    + Distributed domain  
+
+# Distributed cloud computing 
+
+
+# Server clustering 
+
+
+# LB 
+
+# Testing 
++ Multi JVM testing 
 
 ## Tech stack 
 + Java, Spring, Spring cloud 
-
-+ 
++ Active MQ 
++ Hazelcast 
 
 
 
