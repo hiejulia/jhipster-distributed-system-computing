@@ -15,13 +15,20 @@ Distributed system that can serve high load
         + Search service : 
         + Datastorage : Hadoop 
         + 
+    + Live stream movie features (with only friends who also has netflix account)
+        + Streaming video content 
+    + Social network 
+        + Graph database 
+    
     + Billing service
       + coupon service, invoice service, order service, payment service      
-    + Metrics service     
+    + Metrics service + Logging service     
         + Kafka : distributed system monitoring 
             + Move data from kafka to sinks : ElasticSearch, S3 
         + Elasticsearch : set up 150 clusters - 3,500 instances hosting - 1.3 PB data 
         + Apache Chukwa : data collection system for monitor large distributed system - built on top of HDFS and Map/Reduce 
+
+
     + Architecture :
         + AWS ELB : route traffic to front end service 
         + EVCache: sharded multiple copies of cache is sotred in shared nodes 

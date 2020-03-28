@@ -49,3 +49,5 @@
 + conf
 + HOCON 
 
+# Add : 
++ https://github.com/enragedginger/akka-quartz-scheduler
