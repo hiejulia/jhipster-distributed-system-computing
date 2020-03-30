@@ -27,6 +27,7 @@ Distributed system that can serve high load
             + Move data from kafka to sinks : ElasticSearch, S3 
         + Elasticsearch : set up 150 clusters - 3,500 instances hosting - 1.3 PB data 
         + Apache Chukwa : data collection system for monitor large distributed system - built on top of HDFS and Map/Reduce 
+        + Time series database with Cassandra
 
 
     + Architecture :
@@ -90,6 +91,7 @@ Distributed system that can serve high load
 # Distributed cloud computing 
 
 
+
 # Server clustering 
 
 
@@ -98,12 +100,42 @@ Distributed system that can serve high load
 # Testing 
 + Multi JVM testing 
 
+# Container distributed application 
++ Debug a service running in a container 
++ minimized docker images using multi stage
++ secure distributed app 
+    + kubernetes secret 
+    + secrets in env
+    + External secrets like HashiCorp Vault 
++ make service scale  
++ techniques to increase resiliency 
++ availability check 
++ enable zero downtime updates 
++ Prod deployment 
+    + Kubernetes pods, replicasets, deployment, services 
+    + create template
+    + orchestrator 
+    + deploy on premise/ cloud 
+    + peek into 2 big corp hosted kubernetes SaaS : Microsoft azure & google cloud 
+
++ Prod 
+    + self heal 
+    + update service, avoid cascading failures 
+    
+
+
+
+
+
 ## Tech stack 
 + Java, Spring, Spring cloud 
 + Active MQ 
 + Hazelcast 
-
-
++ Docker, Kubernetes on distributed system
++ Architecture
+    + Reactive architecture: Java (Axon framework), Scala (Akka)
+    + Event sourcing architecture 
++ Database in distributed system 
 
 
 
