@@ -31,7 +31,7 @@ Distributed system that can serve high load
     + Authentication service 
         + KSQL streaming, Schema registry, Avro, Kafka, Java producer, C# consumer
         + Credit card registry & email registry function
-
+        + Healthcheck stream producer & consumer service 
     + Architecture :
         + AWS ELB : route traffic to front end service 
         + EVCache: sharded multiple copies of cache is sotred in shared nodes 
