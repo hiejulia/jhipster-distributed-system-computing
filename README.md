@@ -1,3 +1,9 @@
+---
+noteId: "7a0ff390733811eaa7eef1804354f1ce"
+tags: []
+
+---
+
 # jhipster-distributed-system-computing
 Distributed system that can serve high load
 ## Description
@@ -46,6 +52,7 @@ Distributed system that can serve high load
         + Spring cloud :
             + distributed messaging : Cloud bus link the nodes of a distributed system with a lightweigh message broker 
             + 
+    + gRPC for 1 service : written with Go
 + Distributed crawler 
 + Distributed 
 
