@@ -15,27 +15,23 @@
 + Producer 
     + build 
 
-[source,subs="verbatim,quotes"]
---
+
 $ docker container run --rm \
     -v "$PWD":/home/gradle/project \
     -v "$HOME"/.gradle-docker:/root/.gradle \
     -w /home/gradle/project \
     frekele/gradle:latest gradle build
---
 
     + run producer
-+
-[source,subs="verbatim,quotes"]
 
 $ *docker container run --rm \
-    --net sample-app_app-net \
+    --net section-1_app-net \
     -v "$PWD"/build/libs/app.jar:/app/app.jar \
     -v "$PWD"/producer.properties:/app/producer.properties \
     openjdk:11-jre-slim java -jar /app/app.jar*
 
 + Schema registry
-    + `docker-compose exec schema-registry /bin/bash*`
+    + `docker-compose exec section-1_schema-registry_1 /bin/bash*`
     + 
 root@schema-registry:/# *kafka-avro-console-consumer \
     --bootstrap-server kafka:9092 \
@@ -98,8 +94,6 @@ root@schema-registry:/# *kafka-avro-console-consumer \
 {"CREDIT_CARD_NBR":{"string":"cc-a0000002694"},"ATTEMPTS":{"long":3}}
 {"CREDIT_CARD_NBR":{"string":"cc-a0000005202"},"ATTEMPTS":{"long":3}}
 ...`
-
-
 
 + Consumer : .NET Core (SDK) 
 `$ *cd ~/confluent-dev/labs/kafka-avro/dotnet/converter*

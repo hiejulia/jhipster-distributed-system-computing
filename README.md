@@ -28,7 +28,9 @@ Distributed system that can serve high load
         + Elasticsearch : set up 150 clusters - 3,500 instances hosting - 1.3 PB data 
         + Apache Chukwa : data collection system for monitor large distributed system - built on top of HDFS and Map/Reduce 
         + Time series database with Cassandra
-
+    + Authentication service 
+        + KSQL streaming, Schema registry, Avro, Kafka, Java producer, C# consumer
+        + Credit card registry & email registry function
 
     + Architecture :
         + AWS ELB : route traffic to front end service 
