@@ -1,9 +1,3 @@
----
-noteId: "7a0ff390733811eaa7eef1804354f1ce"
-tags: []
-
----
-
 # jhipster-distributed-system-computing
 Distributed system that can serve high load
 ## Description
@@ -100,6 +94,9 @@ Distributed system that can serve high load
 # Distributed cloud computing 
 
 
+# Scalability 
++ Universal scalability laws 
+    
 
 # Server clustering 
 
