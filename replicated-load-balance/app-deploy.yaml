@@ -1,25 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: app-server
+  name: dictionary-server
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: app-server
+        app: dictionary-server
     spec:
       containers:
       - name: server
-        image: hiennguyen711/app-server
+        image: brendanburns/dictionary-server
         ports:
-        - containerPort: 8086
+        - containerPort: 8080
         readinessProbe:
           httpGet:
             path: /ready
-            port: 8086
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
-
-
-

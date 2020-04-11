@@ -1,0 +1,1 @@
+kubectl create configmap varnish-config --from-file=default.vcl

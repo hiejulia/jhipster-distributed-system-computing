@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: app-server-service
+  name: dictionary-server-service
 spec:
   selector:
-    app: app-server
+    app: dictionary-server
   ports:
     - protocol: TCP
       port: 8086
