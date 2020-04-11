@@ -1,6 +1,8 @@
----
-noteId: "668555d07bdb11eab6ef2b491555b4c0"
-tags: []
+# Replicated load balance
+- Scale up 
+- Scale down 
+- Kubernetes to deploy stateless, replicated service behind a load balance 
 
----
 
+#### How to start 
+- `docker run -p 8080:8080 brendanburns/dictionary-server`
