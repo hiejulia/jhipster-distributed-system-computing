@@ -1,0 +1,1 @@
+ffmpeg -i ${INPUT_FILE} -frames:v 100 thumb.png
