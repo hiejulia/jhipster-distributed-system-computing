@@ -94,7 +94,9 @@ Distributed system that can serve high load
         + CQRS 
     + Bulkhead pattern
     + Distributed domain  
-
+- event sourcing architecture 
+    - event driven batch processing 
+        - distributed work queue 
 # Distributed cloud computing 
 
 
