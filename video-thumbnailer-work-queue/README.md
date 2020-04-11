@@ -8,6 +8,11 @@
 - autoscaler to dynamic size up work queue
 - math + heuristic amount of spare capacity 
 - reduce parallelism 
+- auto scale up work queue 
+    - increase parallelism, etc 
+- metrics for work queue 
+    - adjust number of resource 
+    
 
 ### multi worker pattern 
 
