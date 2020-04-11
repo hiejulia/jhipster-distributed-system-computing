@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: app-server
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: app-server
+    spec:
+      containers:
+      - name: server
+        image: hiennguyen711/app-server
+        ports:
+        - containerPort: 8086
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8086
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+
+
