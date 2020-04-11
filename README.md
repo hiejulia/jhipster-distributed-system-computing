@@ -52,8 +52,12 @@ Distributed system that can serve high load
 
 
 ## Implementation 
+- deployment service with kubernetes 
 + Distributed Cache server 
     + HazelCast distributed caching 
+    - varnish distributed cache 
+- replicated load balance 
+- nginx replicated 
 + Distributed messaging 
     + ActiveMQ
     + Kafka 
