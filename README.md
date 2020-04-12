@@ -1,5 +1,11 @@
 # jhipster-distributed-system-computing
-Distributed system that can serve high load
+- Distributed system that can serve high load
+- scale system 
+- HA
+- Handle failure 
+- External distributed storage system for recovery 
+
+
 ## Description
 + Netflix clone 
     + Live Video streaming service 
@@ -58,7 +64,6 @@ Distributed system that can serve high load
 
 
 
-
 ## Implementation 
 - deployment service with kubernetes 
 + Distributed Cache server 
@@ -66,14 +71,15 @@ Distributed system that can serve high load
     - varnish distributed cache 
 - replicated load balance 
 - nginx replicated 
-- shardded caching with memcache
+- sharded caching with memcache(replica)
+    - twemproxy for Redis 
 
 + Distributed messaging 
     + ActiveMQ
     + Kafka 
 + Distributed DB
     + Data partition 
-    + 
+    + Riak 
     + Cassandra  
 + Distributed file system : 
     + Hadoop, HDFS
@@ -82,12 +88,20 @@ Distributed system that can serve high load
 + Distributed web server 
 + Utilize cloud services: 
     + AWS : AWS ELB 
+    - Google S2 geometry lib 
+    - cloud native 
 + Network communication 
     + Async 
     + Axon framework : CQRS 
     + Web socket 
     + RMI, CORBA
     + gRPC 
+    - TChannel : network multiplexing and framing protocol for RPC 
+    
+- distributed locking 
+- distributed tracing, tracking, logging
+- distributed scheduling 
+
 
 + Distributed architecture  
     + peer-to-peer;
@@ -107,6 +121,10 @@ Distributed system that can serve high load
 - event sourcing architecture 
     - event driven batch processing 
         - distributed work queue 
+
+- thrift 
+
+
 # Distributed cloud computing 
 
 
@@ -150,7 +168,18 @@ Distributed system that can serve high load
 
 
 ## Tech stack 
-+ Java, Spring, Spring cloud 
+- C, C++ 
+- Java, Spring, Spring cloud 
+- Node.js, io.js
+- Python 
+- Go lang
+- microservices
+- cache
+- kubernetes
+- KUDA
+- Data pipeline 
+- cloud 
+- Redis 
 + Active MQ 
 + Hazelcast 
 + Docker, Kubernetes on distributed system
@@ -174,4 +203,22 @@ Distributed system that can serve high load
     - facebook distributed architecture : https://www.researchgate.net/publication/262689075_Overview_of_Facebook_scalable_architecture
     - Inside the Social Network data center Facebook
 
+- Uber distributed system / scalability
+    - http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html
 
+
+- Netflix distributed system / scalability
+
+
+
+- Google distributed system / scalability
+
+
+
+- AirBnB distributed system / scalability
+
+
+- Microsoft distributed system / scalability
+
+
+- Amazon distributed system / scalability
