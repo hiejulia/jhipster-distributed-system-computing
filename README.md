@@ -48,7 +48,15 @@ Distributed system that can serve high load
             + 
     + gRPC for 1 service : written with Go
 + Distributed crawler 
-+ Distributed 
+
+
+## Principle for performance tuning 
+- Understand you env 
+- TANSTAAFL!
+- throughput versus latency 
+- DO NOT OVERUTILIZE A RESOURCE
+
+
 
 
 ## Implementation 
@@ -58,6 +66,8 @@ Distributed system that can serve high load
     - varnish distributed cache 
 - replicated load balance 
 - nginx replicated 
+- shardded caching with memcache
+
 + Distributed messaging 
     + ActiveMQ
     + Kafka 
@@ -158,3 +168,10 @@ Distributed system that can serve high load
 + Resource 
     + https://eng.uber.com/ureplicator-apache-kafka-replicator/
     + https://cwiki.apache.org/confluence/display/ZOOKEEPER/PoweredBy
+
+- Facebook scalability / distributed system paper
+    - Scaling backend authentication at facebook 
+    - facebook distributed architecture : https://www.researchgate.net/publication/262689075_Overview_of_Facebook_scalable_architecture
+    - Inside the Social Network data center Facebook
+
+
