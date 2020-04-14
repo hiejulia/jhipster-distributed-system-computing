@@ -89,7 +89,7 @@
 + Utilize cloud services: 
     + AWS : AWS ELB 
     - Google S2 geometry lib 
-    - cloud native 
+    - cloud native d d
 + Network communication 
     + Async 
     + Axon framework : CQRS 
@@ -101,6 +101,12 @@
 - distributed locking 
 - distributed tracing, tracking, logging
 - distributed scheduling 
+- distributed security 
+- distributed messaging, queuing, event streaming 
+- distributed search 
+- distributed storage 
+- CD/CI scaling 
+
 
 
 + Distributed architecture  
@@ -124,6 +130,23 @@
 
 - thrift 
 
+## Availability 
+- Resilience engineer 
+- Failover
+- LB
+- Rate limit 
+- Autoscale
+- Global availability 
+- HA 
+- Circuit breaker
+- timeouts
+
+
+## Performance 
+- OS, storage, database, network 
+- Performance tuning with GC 
+- Performance optimization with Image, video, page load 
+- 
 
 # Distributed cloud computing 
 
@@ -192,6 +215,7 @@
 
 ## Reference to 
 + Book 
+- https://github.com/binhnguyennus/awesome-scalability 
 + Research paper (Graduate, PhD level )
 + Distributed system, large scale system : Uber, Netflix, Grab, AirBnB, Amazon, AWS, Google, Microsoft, Facebook, Apple 
 + Resource 
@@ -203,6 +227,7 @@
     - facebook distributed architecture : https://www.researchgate.net/publication/262689075_Overview_of_Facebook_scalable_architecture
     - Inside the Social Network data center Facebook
 
+
 - Uber distributed system / scalability
     - http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html
 
@@ -212,7 +237,19 @@
 
 
 - Google distributed system / scalability
+    - Designing distributed system : Google case study 
+        - web search 
+            - deep search 
+            - index, inverted index 
+            - ranking - Page Rank 
 
+        - massively multiplayer online games
+        - financial trading 
+
+    - Developing real world case studies 
+    - Large scale cluster management at Google with Borg 
+    - Google’s Data Architecture and What it Takes to Work at Scale
+    
 
 
 - AirBnB distributed system / scalability
