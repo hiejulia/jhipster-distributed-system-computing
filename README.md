@@ -53,6 +53,8 @@
                 - color a region 
                 - apply filters 
         - multi worker pattern 
+        - event driven 
+    - background processing : transcode a video, compress log files, long running computation 
     + Architecture :
         + AWS ELB : route traffic to front end service 
         + EVCache: sharded multiple copies of cache is sotred in shared nodes 
@@ -96,6 +98,7 @@
     + Data partition 
     + Riak 
     + Cassandra  
+    - Google Big table Distributed Storage System for Structured Data
 + Distributed file system : 
     + Hadoop, HDFS
 + Distributed DNS 
@@ -137,11 +140,20 @@
         + Domain sourcing 
         + Distributed domain driven design 
         + CQRS 
+        - event driven batch processing 
+    
     + Bulkhead pattern
     + Distributed domain  
 - event sourcing architecture 
     - event driven batch processing 
         - distributed work queue 
+
+- serverless architecture FaaS 
+    - kubernetes native serverless framework : https://kubeless.io/
+    - kubeless install.
+    
+
+
 
 - thrift 
 
@@ -264,6 +276,7 @@
     - Developing real world case studies 
     - Large scale cluster management at Google with Borg 
     - Google’s Data Architecture and What it Takes to Work at Scale
+    - Bigtable:A DistributedStorageSystemforStructuredData
     
 
 
