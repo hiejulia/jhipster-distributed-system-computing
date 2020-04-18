@@ -38,6 +38,21 @@
         + KSQL streaming, Schema registry, Avro, Kafka, Java producer, C# consumer
         + Credit card registry & email registry function
         + Healthcheck stream producer & consumer service 
+    - Image tagging & processing pipeline 
+        - batch processing 
+        - data : large collection of image 
+        - work queue 
+        - 1 worker detect 
+        - 1 worker blur location of image 
+        - worker containers into single container group 
+        - maximize parallel processing : shard image across multiple worker queues 
+        - join pattern to merge output of al sharded work queue into a single queue
+        - design a queue that apply shard pattern to distributed the work 
+            - 2 workers 
+                - identify the location, type of each vehicle 
+                - color a region 
+                - apply filters 
+        - multi worker pattern 
     + Architecture :
         + AWS ELB : route traffic to front end service 
         + EVCache: sharded multiple copies of cache is sotred in shared nodes 
