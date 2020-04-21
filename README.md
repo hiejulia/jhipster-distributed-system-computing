@@ -117,6 +117,9 @@
     - TChannel : network multiplexing and framing protocol for RPC 
     
 - distributed locking 
+    - CAP 
+    - handle concurrent data manipulation 
+
 - distributed tracing, tracking, logging
 - distributed scheduling 
 - distributed security 
@@ -152,8 +155,13 @@
     - kubernetes native serverless framework : https://kubeless.io/
     - kubeless install.
     
-
-
+- Master- slave 
+    - container crash - restart 
+    - container hangs - health check - restart
+    - machine failes, container will be moved to diferent machine 
+    - master election service 
+        - distributed consensus algo Paxos - Raft 
+    - etcd
 
 - thrift 
 
@@ -257,6 +265,7 @@
 
 - Uber distributed system / scalability
     - http://highscalability.com/blog/2015/9/14/how-uber-scales-their-real-time-market-platform.html
+    - Uber Marketplace Meetup: Using Distributed Locking to Build Reliable Systems
 
 
 - Netflix distributed system / scalability
