@@ -14,3 +14,6 @@
 
 
 - `kubectl logs`
+
+
+<a href="https://imgur.com/CuDB12n"><img src="https://i.imgur.com/CuDB12n.png" title="source: imgur.com" /></a>
