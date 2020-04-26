@@ -6,3 +6,11 @@
     - Shard a Service
 
 -  Sharded Redis
+
+
+
+- monitor container 
+
+
+
+- `kubectl logs`

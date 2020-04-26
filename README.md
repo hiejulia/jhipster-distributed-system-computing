@@ -127,6 +127,12 @@
 - distributed search 
 - distributed storage 
 - CD/CI scaling 
+- Monitor & benchmark 
+     - Prometheus
+     - Fluentd normalizing different logging format 
+     - https://github.com/mominosin/fluent-plugin-redis-slowlog
+     
+
 
 
 
@@ -162,8 +168,10 @@
     - master election service 
         - distributed consensus algo Paxos - Raft 
     - etcd
+- redis 
+- thrift
+- nginx 
 
-- thrift 
 
 ## Availability 
 - Resilience engineer 
@@ -200,6 +208,7 @@
 
 # Container distributed application 
 + Debug a service running in a container 
+    - container design for modularity & reusability 
 + minimized docker images using multi stage
 + secure distributed app 
     + kubernetes secret 
