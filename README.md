@@ -270,6 +270,8 @@
     - Scaling backend authentication at facebook 
     - facebook distributed architecture : https://www.researchgate.net/publication/262689075_Overview_of_Facebook_scalable_architecture
     - Inside the Social Network data center Facebook
+    - Building a billion user load balancer at Facebook https://www.youtube.com/watch?v=bxhYNfFeVF4
+    
 
 
 - Uber distributed system / scalability
